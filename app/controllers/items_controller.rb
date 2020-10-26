@@ -53,6 +53,9 @@ class ItemsController < ApplicationController
 
   def complete
     # before_action will run
+
+    @item.update_attribute(:completed_at, Time.now)
+    redirect_to root_path
   end
 
   private
