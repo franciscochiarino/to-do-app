@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new
+    @item = Item.new(item_params)
 
     if @item.save
       # If an items is added, go to homepage
@@ -16,5 +16,10 @@ class ItemsController < ApplicationController
     else
       # Otherwise, stay in the "new" page
       render 'new'
+  end
+
+  private
+  def item_params
+    params_require(:item).permit(:title, :description)
   end
 end
