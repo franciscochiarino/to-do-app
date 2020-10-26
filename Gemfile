@@ -7,12 +7,6 @@ ruby '2.5.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
-# Development database
-gem 'sqlite3', group: :development
-# Production database
-gem 'pg', '0.18.1', group: :production
-# Heroku
-gem 'rails_12factor', group: :production
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -41,6 +35,8 @@ group :development, :test do
 end
 
 group :development do
+  # Development database
+  gem 'sqlite3'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
@@ -57,12 +53,12 @@ group :test do
   gem 'webdrivers'
 end
 
-# group :production do
-#   # PostgreSQL
-#   gem 'pg'
-#   # Gem for Heroku
-#   gem 'rails_12factor'
-# end
+group :production do
+  # PostgreSQL
+  gem 'pg'
+  # Gem for Heroku
+  gem 'rails_12factor'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
