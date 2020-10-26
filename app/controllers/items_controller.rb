@@ -16,10 +16,13 @@ class ItemsController < ApplicationController
     else
       # Otherwise, stay in the "new" page
       render 'new'
+    end
   end
 
   private
+
   def item_params
-    params_require(:item).permit(:title, :description)
+    params.require(:item).permit(:title, :description)
   end
+
 end
