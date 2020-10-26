@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    # Store all items in an array and order by date descending
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
