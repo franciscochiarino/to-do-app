@@ -3,10 +3,18 @@
 <button type="button"><%= link_to 'New Task', new_item_path %></button>
 
 <% @items.each do |item| %>
-  <h2><%= link_to item.title, item %></h2>
-  <p><%= item.description %></p>
-  
-  <%= link_to complete_item_path(item), method: :patch do %>
-    <input type="checkbox" />
+  <% if item.completed? %>
+    <h2><s><%= link_to item.title, item %></s></h2>
+    <%= link_to complete_item_path(item), method: :patch do %>
+      <input type="checkbox" checked />
+    <% end %>
+
+  <% else %>
+    <h2><%= link_to item.title, item %></h2>
+    <p><%= item.description %></p>
+    <%= link_to complete_item_path(item), method: :patch do %>
+      <input type="checkbox" />
+    <% end %>
   <% end %>
+  
 <% end %>
