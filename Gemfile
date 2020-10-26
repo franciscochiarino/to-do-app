@@ -54,11 +54,10 @@ group :test do
 end
 
 group :production do
-  # Database
+  # PostgreSQL
   gem 'pg'
   # Gem for Heroku
   gem 'rails_12factor'
-
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
