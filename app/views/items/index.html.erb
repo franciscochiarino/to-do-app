@@ -5,5 +5,8 @@
 <% @items.each do |item| %>
   <h2><%= link_to item.title, item %></h2>
   <p><%= item.description %></p>
-  <input type="checkbox" />
+  
+  <%= link_to complete_item_path(item), method: :patch do %>
+    <input type="checkbox" />
+  <% end %>
 <% end %>
