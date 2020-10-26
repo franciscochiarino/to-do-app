@@ -6,4 +6,7 @@ class ItemsController < ApplicationController
     # Create variable with model
     @item = Item.new
   end
+
+  def create
+  end
 end
