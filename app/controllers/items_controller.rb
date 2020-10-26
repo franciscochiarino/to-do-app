@@ -29,6 +29,18 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def update
+    @item = Item.find(params[:id])
+
+    if @item.update(item_params)
+      # If item is updated, go to "show" page
+      redirect_to item_path(@item)
+    else
+      # Otherwise, stay in the "edit" page
+      render 'edit'
+    end
+  end
+
   private
 
   def item_params
