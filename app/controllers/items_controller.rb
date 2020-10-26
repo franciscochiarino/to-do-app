@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   # Run find_item method before show, edit and update
-  before_action :find_item, only: [:show, :edit, :update, :delete]
+  before_action :find_item, only: [:show, :edit, :update, :destroy]
 
   def index
     # Store all items in an array and order by date descending
@@ -44,14 +44,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     # before action will run
 
-    if @item.destroy
-      redirect_to root_path
-    else
-      render 'show'
-    end
+    @item.destroy
+    redirect_to root_path
   end
 
   private
